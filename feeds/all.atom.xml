@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Phase unlocked</title><link href="http://jfosorio.github.io/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>http://jfosorio.github.io/</id><updated>2014-04-03T11:31:00-07:00</updated><entry><title>Trying the notebook plug-in</title><link href="http://jfosorio.github.io/blog/2014/04/03/trying-the-notebook-plug-in/" rel="alternate"></link><updated>2014-04-03T11:31:00-07:00</updated><author><name>Juan F. Osorio</name></author><id>tag:jfosorio.github.io,2014-04-03:blog/2014/04/03/trying-the-notebook-plug-in/</id><summary type="html">&lt;p&gt;{% img left /images/amsterdam.jpg 'Amsterdam' %}&lt;/p&gt;
+&lt;p&gt;{% notebook AN_PN_of_the_oscilator_using_time_domain_simulation.ipynb cells[2:] %}&lt;/p&gt;
+</summary><category term="Notebook"></category><category term="blog"></category></entry><entry><title>Welcome</title><link href="http://jfosorio.github.io/blog/2014/04/03/welcome/" rel="alternate"></link><updated>2014-04-03T11:31:00-07:00</updated><author><name>Juan F. Osorio</name></author><id>tag:jfosorio.github.io,2014-04-03:blog/2014/04/03/welcome/</id><summary type="html">&lt;p&gt;This is my first attempt to use pelican as static generator for this blog.
+My aim is to document the process of devoloping a Python tools for simulating
+PLL's.
+Greetings,
+Juan&lt;/p&gt;
+</summary><category term="Welcome"></category></entry></feed>
