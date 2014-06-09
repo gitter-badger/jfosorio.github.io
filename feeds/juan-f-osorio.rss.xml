@@ -1395,7 +1395,7 @@ EREREREREREREREREREREREREQk4/w+dtC7neEuExwAAAABJRU5ErkJggg==
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[7]:
+In&amp;nbsp;[5]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
@@ -1849,7 +1849,7 @@ IiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiknD+P8XfLhLxc6PpAAAAAElFTkSuQmCC
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[9]:
+In&amp;nbsp;[6]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
@@ -2250,7 +2250,7 @@ xUgHY9f9AAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Conclution"&gt;Conclution&lt;a class="anchor-link" href="#Conclution"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="Conclusion"&gt;Conclusion&lt;a class="anchor-link" href="#Conclusion"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2261,7 +2261,7 @@ xUgHY9f9AAAAAElFTkSuQmCC
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;With this entry I revisited the theory of SD modulators using a module written in Python. The fundamental aspects of Mash SDM modulators are explained and documented. To analyze the output I used the nice Scipy library. In this way, and with the help of the Ipython notebook, the linear theory of mash SDM and its limitations are well documented and are easily replicated.&lt;/p&gt;
-&lt;p&gt;This shows a bit what would be the intention with the plldesigner toolkit. This a project that I have been developing and aims to add specific functionality to the numpy+scipy+ipython ecosystem to simulate and model PLL's&lt;/p&gt;
+&lt;p&gt;This shows a bit what would be the intention with the plldesigner toolkit. This a project that I have been developing and aims to add specific functionality to the numpy+scipy+ipython ecosystem to simulate and model PLLs&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Juan F. Osorio</dc:creator><pubDate>Mon, 09 Jun 2014 13:01:00 -0700</pubDate><guid>tag:jfosorio.github.io,2014-06-09:blog/2014/06/09/sigma-delta-modulator-phase-noise-in-fractional-n-plls/</guid><category>Sigma-Delta modulator</category><category>Phase Noise</category><category>Notebook</category></item><item><title>A blog related with phase-locked loops phase noise and Python.</title><link>http://jfosorio.github.io/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/</link><description>&lt;p&gt;Since one year ago when I came across with the excellent blog about Python by Jake VanderPlas, &lt;a href="http://jakevdp.github.io"&gt;Pythonic Perambulations&lt;/a&gt;, I have been  considering the idea of writing a blog related with
