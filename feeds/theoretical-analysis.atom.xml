@@ -5,6 +5,16 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="\(\Sigma-\Delta\)-modulator-phase-noise-in-fractional-N-PLL's"&gt;&lt;span class="math"&gt;\(\Sigma-\Delta\)&lt;/span&gt;-modulator phase noise in fractional-N PLL's&lt;a class="anchor-link" href="#\(\Sigma-\Delta\)-modulator-phase-noise-in-fractional-N-PLL's"&gt;&amp;#182;&lt;/a&gt;&lt;/h1&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The first time that I need to design a fractional-N PLL if took me quite some time to undestand the simplicity of &lt;span class="math"&gt;\(\Sigma\Delta\)&lt;/span&gt;-modulators(SDM). The fundamental reason is that it takes quite some time to develop a model and there are a couple of mathematical pitfalls that is difficult to avoid at first.&lt;/p&gt;
 &lt;p&gt;This is one of those topics where a notebook including both theory and code and code seems particular appealing. This notebook is about that, I implemented some functions as part of a more general package to design PLL's and one of them is a SDM. Then starting this entry I found necessary to expose the theory, this is done in the first subsection of this entry, the second section shows how a mash SDM works and explain the model in Python and the last section show the results and the comparison with the theoretical model.&lt;/p&gt;
 &lt;/div&gt;
