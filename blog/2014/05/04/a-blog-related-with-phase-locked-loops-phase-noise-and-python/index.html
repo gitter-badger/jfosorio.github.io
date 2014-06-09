@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Phase unlocked</title>
+  <title>A blog related with phase-locked loops phase noise and Python.</title>
   <meta name="author" content="Juan F. osorio">
 
   <link href="/atom.xml" type="application/atom+xml" rel="alternate"
@@ -1726,41 +1726,55 @@ init_mathjax();
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://jfosorio.github.io/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/">A blog related with phase-locked loops phase noise and Python.</a>
-      </h1>
+      <h1 class="entry-title">A blog related with phase-locked loops phase noise and Python.</h1>
       <p class="meta"><time datetime="2014-05-04T11:31:00" pubdate>May 04, 2014</time></p>
 </header>
 
-  <div class="entry-content"><p>About this blog</p></div>
-  <footer>
-    <a rel="full-article" href="http://jfosorio.github.io/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://jfosorio.github.io/blog/2014/05/03/trying-the-notebook-plug-in/">Trying the notebook plug-in</a>
-      </h1>
-      <p class="meta"><time datetime="2014-05-03T11:31:00" pubdate>May 03, 2014</time></p>
-</header>
+  <div class="entry-content"><p>Since one year ago when I came across with the excellent blog about Python by Jake VanderPlas, <a href="http://jakevdp.github.io">Pythonic Perambulations</a>, I have been  considering the idea of writing a blog related with
+PLL's circuit design and modelling using Ipython notebooks to illustrate the so many times misunderstood concepts
+of phase locking and phase noise. The aim is also creating a space to share opinions regarding recently appeared papers and benchmarking of PLL's.</p>
+<p>There are quite some reasons that make the blog of Jake interesting, but the most interesting is that it shows the capabilities of <a href="http://ipython.org/notebook.html">IPython notebooks</a> to illustrate ideas related with computation, mathematics and physics. Jake also has a quite efficient method to publish blogs with Ipython notebooks that I am using in this blog that uses Pelican to automatically post a notebook. If you are interested I suggest you read this two blogs entries:</p>
+<ul>
+<li>
+<p><a href="http://jakevdp.github.io/blog/2012/10/04/blogging-with-ipython/">Blogging with IPython in Octopress</a></p>
+</li>
+<li>
+<p><a href="http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/">Migrating from Octopress to Pelican</a></p>
+</li>
+</ul>
+<p>I went so far to copy Jake's idea that I even copy his blog design, being incapable of changing the stile and making it look still nice, what is a pending task. </p>
+<p>The PLL literature is extensive, so what could this blog adds on?. The aim is to incorporate a group of new ideas developed by the scientific community to exchange scientific documentation and use them to show concepts of Phase-locked loops. This new way of documenting scientific results is what I would call: <em>documentation+data+code</em>. The idea is that in order to share a scientific idea is not only necessary to share the documentation (in form of papers) but also the data that support and the code that allows to derivate conclusions of that data. The reasons of what this would enable a more transparent way of doing science is self-evident and many people is working in making it also a more effective way improving the tools that are necessary for that, e.g. Ipython. An inspiring talk about the topic by Fernando Perez, the Ipython creator, can better illustrate this point, <a href="http://www.pyvideo.org/video/2683/keynote-fernando-perez">Python &amp; Science</a>. </p>
+<p>Another inspiring Blog is  Bengt E. Jonsson Blog, <a href="http://converterpassion.wordpress.com/about/">Converter Passion</a>.  Jonsson Blog's discuss many relevant topics that are hidden behind the large number of papers published in a topic like analog to digital converters. He also benchmark different ADC/DACs and create a place to discuss about the topic.   Normally there is also a lack of discussion and forums related with enginering when you compared for instance with the increasing amount of discussion that happens  onlin in the scientific community. </p>
+<p>Let's start!,</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Juan F. Osorio</span>
+  </span>
+<time datetime="2014-05-04T11:31:00" pubdate>May 04, 2014</time>  <span class="categories">
+    <a class="category" href="http://jfosorio.github.io/tag/welcome.html">Welcome</a>
+  </span>
+</p><div class="sharing">
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jfosorio.github.io/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/" data-via="tupako" data-counturl="http://jfosorio.github.io/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/" >Tweet</a>
+  <div class="g-plusone" data-size="medium"></div>
+</div>    </footer>
+  </article>
 
-  <div class="entry-content"><p>Short version for index and feeds</p></div>
-  <footer>
-    <a rel="full-article" href="http://jfosorio.github.io/blog/2014/05/03/trying-the-notebook-plug-in/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
-
-  <br />
-</div></div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
+      <li class="post">
+          <a href="http://jfosorio.github.io/blog/2014/06/09/sigma-delta-modulator-phase-noise-in-fractional-n-plls/">Sigma−Delta modulator phase noise in fractional-N PLL's</a>
+      </li>
       <li class="post">
           <a href="http://jfosorio.github.io/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/">A blog related with phase-locked loops phase noise and Python.</a>
       </li>
@@ -1850,6 +1864,9 @@ init_mathjax();
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'phaseunlocked';
+          var disqus_identifier = '/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/';
+          var disqus_url = 'http://jfosorio.github.io/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/';
+          var disqus_title = 'A blog related with phase-locked loops phase noise and Python.';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
