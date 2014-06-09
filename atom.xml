@@ -799,31 +799,53 @@ height=100
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The instantaneous frequency division is given by:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+    N_{div}(z) = N+f(z)+H_{s}(z) \Delta_{q}(z),
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;Where &lt;span class="math"&gt;\(N\)&lt;/span&gt; is that integer part of the division ratio, &lt;span class="math"&gt;\(f(z)\)&lt;/span&gt; is the fractional part, and &lt;span class="math"&gt;\(H_s(z) \Delta_{q}(z)\)&lt;/span&gt; is the instantaneous error made by a SDM of order m. The instantaneous noise of the SDM has to components &lt;span class="math"&gt;\(\Delta_{q}(z)\)&lt;/span&gt; is the quantization noise and the term &lt;span class="math"&gt;\(H_s(z)\)&lt;/span&gt; is the noise shaping transfer function.&lt;/p&gt;
 &lt;p&gt;The output frequency of the SD modulator is given by:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+    f_{div}(z) = \cfrac{f_{in}}{N+f(z)+H_s(z) \Delta_{q}(z)},
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;that can be simplify, using the approximation &lt;span class="math"&gt;\(\cfrac{1}{1+x} \approx  1-x \: \text{for } x &amp;lt;&amp;lt; 1\)&lt;/span&gt;, as:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+    f_{div}(z) = \cfrac{f_{in}}{N+f(z)}\left(1 - \cfrac{H_s(z) \Delta_{q}(z)}{N+f(z)}\right),
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;As &lt;span class="math"&gt;\(\cfrac{f_{in}}{N+f(z)}\)&lt;/span&gt; equals the target frequency, which in a PLL is the reference frequency, &lt;span class="math"&gt;\(f_{ref}\)&lt;/span&gt; the frequency error as a function of the target frequency is given by:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+    \Delta_{f_{div}}(z) = - f_{ref} \cfrac{ H_s(z) \Delta_{q}(z)}{N+f(z)}.
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;The power spectral density of the quantization noise can be approximated using similar assumptions than those used to calculate the spectrum of the quantization noise of a ADC. In the case of a SDM the phase error increses linearly during a single period of the reference until it reaches the minimum integer division ratio of the divider. For a divider with a minimum step of one the quantization noise rms value can be approximated by:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+    \Delta_{q,rms} = \frac{1}{12} (rad, rms),
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;this noise is uniformaly distributed over Nyquist bandwidth of the sampler than in the case of a PLL is &lt;span class="math"&gt;\(f_{ref}/2\)&lt;/span&gt;. Then the noise power spectral density of the sampling noise is given by:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+    \Delta_{q}^2 = \frac{1}{6 f_{ref}} (rad^2/Hz). 
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;The other aspect that needs to be accounted for, in order to find a close expression for the phase noise, is the shaping of the SDM, for Mash-1-1-1 SDM this is given by[1]:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+    H_s(z)= (1-z^{-1})^m, 
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;where m is the SDM order.&lt;/p&gt;
 &lt;p&gt;With this elements in place it is possible to have a better expression for the error made approximating the frequency thus:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+    \Delta_{f_{div}}(z)^2 =  \left|f_{ref} \cfrac{ (1-z^{-1})^m}{N+f(z)}\right|^2 \cfrac{1}{6 f_{ref}}.
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;As it happens we are interesting in the phase, so integrating the last expression in the z-domain we have:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+\Phi_{div}(z) = \frac{2 \pi T_{ref} \Delta_{f_{div}}(z)}{1-z^{-1}},
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;that putting everything together ends being:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+    \Phi_{div}(z)^2 = \frac{(2 \pi)^2}{6 f_{ref}} \frac{|1-z^{-1}|^{2m-1}}{(N+f(z))^2}(Rad^2/Hz)
+\]&lt;/span&gt;&lt;/p&gt;
 by definition &lt;span class="math"&gt;\(\mathcal{L}(z)= \Phi_{div}(z)^2/2\)&lt;/span&gt; the phase noise is given by:
 
 &lt;p&gt;that can be replaced by a more useful expression replacing &lt;span class="math"&gt;\(z\)&lt;/span&gt; by &lt;span class="math"&gt;\(e^{sT_{ref}}\)&lt;/span&gt; and calling the frequency &lt;span class="math"&gt;\(f_m\)&lt;/span&gt; to emphasis that this is the frequency offset due to the modulation:&lt;/p&gt;
-
+&lt;p&gt;&lt;span class="math"&gt;\[
+  \mathcal{L}(f_m) = \frac{(2 \pi)^2}{12 f_{ref}} \cfrac{[2 sin(\pi f_m/ f_{ref})]^{2(m-1)}}{(N+f(z))^2}.
+\]&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;As presented here this is the noise at the output of the divider, normally in previous references [1] and [2] the noise is scaled to the divider output, that is multiplying the last equation by &lt;span class="math"&gt;\((N+f(z))^2\)&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;[1]B. Miller and R. J. Conley, “A multiple modulator fractional divider,” IEEE Transactions on Instrumentation and Measurement, vol. 40, no. 3, pp. 578–583, 1991.&lt;/p&gt;
 &lt;p&gt;[2]T. A. D. Riley, M. A. Copeland, and T. A. Kwasniewski, “Delta-sigma modulation in fractional-N frequency synthesis,” IEEE Journal of Solid-State Circuits, vol. 28, no. 5, pp. 553–559, May 1993.&lt;/p&gt;
