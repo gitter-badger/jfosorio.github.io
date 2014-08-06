@@ -2270,21 +2270,6 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[]:
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
 &lt;/div&gt;&lt;/p&gt;</summary><category term="Sigma-Delta modulator"></category><category term="Phase Noise"></category><category term="Notebook"></category></entry><entry><title>A blog related with phase-locked loops phase noise and Python.</title><link href="http://jfosorio.github.io/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/" rel="alternate"></link><updated>2014-05-04T11:31:00-07:00</updated><author><name>Juan F. Osorio</name></author><id>tag:jfosorio.github.io,2014-05-04:blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/</id><summary type="html">&lt;p&gt;Since one year ago when I came across with the excellent blog about Python by Jake VanderPlas, &lt;a href="http://jakevdp.github.io"&gt;Pythonic Perambulations&lt;/a&gt;, I have been  considering the idea of writing a blog related with
 PLL's circuit design and modelling using Ipython notebooks to illustrate the so many times misunderstood concepts
 of phase locking and phase noise. The aim is also creating a space to share opinions regarding recently appeared papers and benchmarking of PLL's.&lt;/p&gt;
