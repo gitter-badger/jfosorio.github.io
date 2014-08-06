@@ -2262,13 +2262,29 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;After publication some changes have been made: - The text was corrected, although not perfect is definitely more readable.&lt;/p&gt;
+&lt;p&gt;After publication some changes have been made:&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The text was corrected, although not perfect is definitely more readable.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The pnoise class was renamed to be Pnoise, according with Python conventions, so the notebook was updated accordingly.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The notebook assumes the --pylab flag is used when calling Ipython as: ipython notebook --pylab. This makes the code a bit less verbose, what I consider is the best practice in a Notebook were clarity is more desired than follow software writing best practices.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;
+In&amp;nbsp;[]:
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class="highlight-ipynb"&gt;&lt;pre class="ipynb"&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
 &lt;/div&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Juan F. Osorio</dc:creator><pubDate>Mon, 09 Jun 2014 13:01:00 -0700</pubDate><guid>tag:jfosorio.github.io,2014-06-09:blog/2014/06/09/sigma-delta-modulator-phase-noise-in-fractional-n-plls/</guid><category>Sigma-Delta modulator</category><category>Phase Noise</category><category>Notebook</category></item><item><title>A blog related with phase-locked loops phase noise and Python.</title><link>http://jfosorio.github.io/blog/2014/05/04/a-blog-related-with-phase-locked-loops-phase-noise-and-python/</link><description>&lt;p&gt;Since one year ago when I came across with the excellent blog about Python by Jake VanderPlas, &lt;a href="http://jakevdp.github.io"&gt;Pythonic Perambulations&lt;/a&gt;, I have been  considering the idea of writing a blog related with
 PLL's circuit design and modelling using Ipython notebooks to illustrate the so many times misunderstood concepts
 of phase locking and phase noise. The aim is also creating a space to share opinions regarding recently appeared papers and benchmarking of PLL's.&lt;/p&gt;
