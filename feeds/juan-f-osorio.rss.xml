@@ -2266,7 +2266,7 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;The text was corrected, although not perfect is definitely more readable.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The pnoise class was renamed to be Pnoise, according with Python conventions, so the notebook was updated accordingly.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The notebook assumes the --pylab flag is used when calling Ipython as: ipython notebook --pylab. This makes the code a bit less verbose, what I consider is the best practice in a Notebook were clarity is more desired than follow software writing best practices.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The notebook imports pylab as &amp;quot;from pylab import *&amp;quot;, what I consider is the best practice in a Notebook were clarity is more desired than follow software writing best practices.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
