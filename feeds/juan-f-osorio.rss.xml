@@ -2288,9 +2288,16 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;After publication some changes have been made:&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;[20/07/2014]&lt;/p&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;The text was corrected, although not perfect is definitely more readable.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The pnoise class was renamed to be Pnoise, according with Python conventions, so the notebook was updated accordingly.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The pnoise class was renamed to be Pnoise, according with Python conventions, so the notebook was updated accordingly&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The notebook imports pylab as &amp;quot;from pylab import *&amp;quot;, what I consider is the best practice in a Notebook were clarity is more desired than follow software writing best practices.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;[19/08/2014]
+&lt;ul&gt;
+&lt;li&gt;The equations were not properly rendered. That wash changed&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
