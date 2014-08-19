@@ -2613,13 +2613,12 @@ height=100
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Within the <a href="https://github.com/jfosorio/plldesigner">plldesigner</a> project two modules implement a class for adding pnoise frequency domain signals and and create sequences of SDM's.</p>
 <p>The sigma delta modulator is implemented by an algorithm that uses a counter that add every time the input word K and overflows when the value reaches MAX value that is equivalent in to the maximum value of a register, that is: <span class="math">\(2^N-1\)</span>. The next example shows how a first order modulator is implemented:</p>
-<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
-<span style='color:#800000; font-weight:bold; '>for</span> j <span style='color:#800000; font-weight:bold; '>in</span> arange<span style='color:#808030; '>(</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>,</span> L<span style='color:#808030; '>)</span><span style='color:#808030; '>:</span>
-    stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>=</span> stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>-</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>]</span> <span style='color:#808030; '>+</span> K<span style='color:#808030; '>[</span>j<span style='color:#808030; '>-</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>]</span>
-    <span style='color:#800000; font-weight:bold; '>if</span> stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>></span> MAXVAL<span style='color:#808030; '>:</span>
-        over1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>=</span> <span style='color:#008c00; '>1</span>
-        stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>=</span> stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>-</span> <span style='color:#808030; '>(</span>MAXVAL<span style='color:#808030; '>+</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>)</span>
-div <span style='color:#808030; '>=</span> over1 </pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">for</span> j in arange(<span class="dv">1</span>, L):
+            stat1[j] = stat1[j<span class="dv">-1</span>] + K[j<span class="dv">-1</span>]
+            <span class="kw">if</span> stat1[j] &gt; MAXVAL:
+                over1[j] = <span class="dv">1</span>
+                stat1[j] = stat1[j] - (MAXVAL<span class="dv">+1</span>)
+        div = over1</code></pre>
 <p>The implementation of first, second and third order Sigma-delta modulators can be found in: <a href="https://github.com/jfosorio/plldesigner">plldesigner</a></p>
 </div>
 </div>
@@ -4081,7 +4080,7 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 
   <section>
   <h1>Tags</h1>
-    <a href="http://jfosorio.github.io/tag/sigma-delta-modulator.html">Sigma-Delta modulator</a>,    <a href="http://jfosorio.github.io/tag/welcome.html">Welcome</a>,    <a href="http://jfosorio.github.io/tag/notebook.html">Notebook</a>,    <a href="http://jfosorio.github.io/tag/phase-noise.html">Phase Noise</a>  </section>
+    <a href="http://jfosorio.github.io/tag/notebook.html">Notebook</a>,    <a href="http://jfosorio.github.io/tag/welcome.html">Welcome</a>,    <a href="http://jfosorio.github.io/tag/sigma-delta-modulator.html">Sigma-Delta modulator</a>,    <a href="http://jfosorio.github.io/tag/phase-noise.html">Phase Noise</a>  </section>
 
 
 
