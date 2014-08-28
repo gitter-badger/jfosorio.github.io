@@ -1766,7 +1766,7 @@ init_mathjax();
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[1]:
+In&nbsp;[3]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1791,7 +1791,7 @@ In&nbsp;[1]:
 
 
 <div class="output_area"><div class="prompt output_prompt">
-    Out[1]:</div>
+    Out[3]:</div>
 
 
 <div class="output_png output_subarea output_pyout">
@@ -2102,31 +2102,55 @@ BriM5IdywQAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The instantaneous frequency division is given by:</p>
-
+<p><span class="math">\[
+    N_{div}(z) = N+f(z)+H_{s}(z) \Delta_{q}(z),
+\]</span></p>
 <p>Where <span class="math">\(N\)</span> is that integer part of the division ratio, <span class="math">\(f(z)\)</span> is the fractional part, and <span class="math">\(H_s(z) \Delta_{q}(z)\)</span> is the instantaneous error made by a SDM of order m. The instantaneous noise of the SDM has to components <span class="math">\(\Delta_{q}(z)\)</span> is the quantization noise and the term <span class="math">\(H_s(z)\)</span> is the noise shaping transfer function.</p>
 <p>The output frequency of the SD modulator is given by:</p>
-
+<p><span class="math">\[
+    f_{div}(z) = \cfrac{f_{in}}{N+f(z)+H_s(z) \Delta_{q}(z)},
+\]</span></p>
 <p>that can be simplify, using the approximation <span class="math">\(\cfrac{1}{1+x} \approx  1-x \: \text{for } x &lt;&lt; 1\)</span>, as:</p>
-
+<p><span class="math">\[
+    f_{div}(z) = \cfrac{f_{in}}{N+f(z)}\left(1 - \cfrac{H_s(z) \Delta_{q}(z)}{N+f(z)}\right),
+\]</span></p>
 <p>As <span class="math">\(\cfrac{f_{in}}{N+f(z)}\)</span> equals the target frequency, which in a PLL is the reference frequency <span class="math">\(f_{ref}\)</span>, the frequency error as a function of the target frequency equals:</p>
-
+<p><span class="math">\[
+    \Delta_{f_{div}}(z) = - f_{ref} \cfrac{ H_s(z) \Delta_{q}(z)}{N+f(z)}.
+\]</span></p>
 <p>The power spectral density of the quantization noise can be approximated using a similar assumption than the one used to calculate the spectrum of the quantization noise of a ADC. In the case of a SDM the phase error increases linearly during a single period of the reference until it reaches the minimum integer division ratio of the divider. For a divider with a minimum step of one the quantization noise rms value can be approximated by:</p>
-
+<p><span class="math">\[
+    \Delta_{q,rms} = \frac{1}{12} (rad, rms),
+\]</span></p>
 <p>this noise is uniformly distributed over Nyquist bandwidth of the sampler than in the case of a PLL is <span class="math">\(f_{ref}/2\)</span>. Then the noise power spectral density of the sampling noise is given by:</p>
-
+<p><span class="math">\[
+    \Delta_{q}^2 = \frac{1}{6 f_{ref}} (rad^2/Hz). 
+\]</span></p>
 <p>The other aspect that needs to be accounted for, in order to find a close expression for the phase noise, is the shaping of the SDM, for Mash-1-1-1 SDM this is given by[1]:</p>
-
+<p><span class="math">\[
+    H_s(z)= (1-z^{-1})^m, 
+\]</span></p>
 <p>where m is the SDM order.</p>
 <p>With this elements in place it is possible to have a better expression for the error made approximating the frequency thus:</p>
-
+<p><span class="math">\[
+    \Delta_{f_{div}}(z)^2 =  \left|f_{ref} \cfrac{ (1-z^{-1})^m}{N+f(z)}\right|^2 \cfrac{1}{6 f_{ref}}.
+\]</span></p>
 <p>As it happens we are interesting in the phase, so integrating the last expression in the z-domain we have:</p>
-
+<p><span class="math">\[
+\Phi_{div}(z) = \frac{2 \pi T_{ref} \Delta_{f_{div}}(z)}{1-z^{-1}},
+\]</span></p>
 <p>that putting everything together ends being:</p>
-
-by definition <span class="math">\(\mathcal{L}(z)= \Phi_{div}(z)^2/2\)</span> the phase noise is given by:
-
+<p><span class="math">\[
+\Phi_{div}(z)^2 = \frac{(2 \pi)^2}{6 f_{ref}} \frac{|1-z^{-1}|^{2m-1}}{(N+f(z))^2}(Rad^2/Hz)
+\]</span></p>
+<p>by definition <span class="math">\(\mathcal{L}(z)= \Phi_{div}(z)^2/2\)</span> the phase noise is given by:</p>
+<p><span class="math">\[
+    \mathcal{L}(z) = \frac{(2 \pi)^2}{12 f_{ref}} \frac{|1-z^{-1}|^{2m-1}}{(N+f(z))^2}(Rad^2/Hz),
+\]</span></p>
 <p>that can be replaced by a more useful expression replacing <span class="math">\(z\)</span> by <span class="math">\(e^{sT_{ref}}\)</span> and calling the frequency <span class="math">\(f_m\)</span> to emphasis that this is the frequency offset due to the modulation:</p>
-
+<p><span class="math">\[
+  \mathcal{L}(f_m) = \frac{(2 \pi)^2}{12 f_{ref}} \cfrac{[2 sin(\pi f_m/ f_{ref})]^{2(m-1)}}{(N+f(z))^2}.
+\]</span></p>
 <p>As presented here this is the noise at the output of the divider, normally in previous references [1] and [2] the noise is scaled to the divider output, that is multiplying the last equation by <span class="math">\((N+f(z))^2\)</span>.</p>
 <p>[1]B. Miller and R. J. Conley, “A multiple modulator fractional divider,” IEEE Transactions on Instrumentation and Measurement, vol. 40, no. 3, pp. 578–583, 1991.</p>
 <p>[2]T. A. D. Riley, M. A. Copeland, and T. A. Kwasniewski, “Delta-sigma modulation in fractional-N frequency synthesis,” IEEE Journal of Solid-State Circuits, vol. 28, no. 5, pp. 553–559, May 1993.</p>
@@ -2150,13 +2174,23 @@ by definition <span class="math">\(\mathcal{L}(z)= \Phi_{div}(z)^2/2\)</span> th
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Within the <a href="https://github.com/jfosorio/plldesigner">plldesigner</a> project two modules implement a class for adding pnoise frequency domain signals and and create sequences of SDM's.</p>
 <p>The sigma delta modulator is implemented by an algorithm that uses a counter that add every time the input word K and overflows when the value reaches MAX value that is equivalent in to the maximum value of a register, that is: <span class="math">\(2^N-1\)</span>. The next example shows how a first order modulator is implemented:</p>
-<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
-<span style='color:#800000; font-weight:bold; '>for</span> j <span style='color:#800000; font-weight:bold; '>in</span> arange<span style='color:#808030; '>(</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>,</span> L<span style='color:#808030; '>)</span><span style='color:#808030; '>:</span>
-    stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>=</span> stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>-</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>]</span> <span style='color:#808030; '>+</span> K<span style='color:#808030; '>[</span>j<span style='color:#808030; '>-</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>]</span>
-    <span style='color:#800000; font-weight:bold; '>if</span> stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>></span> MAXVAL<span style='color:#808030; '>:</span>
-        over1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>=</span> <span style='color:#008c00; '>1</span>
-        stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>=</span> stat1<span style='color:#808030; '>[</span>j<span style='color:#808030; '>]</span> <span style='color:#808030; '>-</span> <span style='color:#808030; '>(</span>MAXVAL<span style='color:#808030; '>+</span><span style='color:#008c00; '>1</span><span style='color:#808030; '>)</span>
-div <span style='color:#808030; '>=</span> over1 </pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>python for j in arange(1, L):     stat1[j] = stat1[j-1] + K[j-1]     if stat1[j] &gt; MAXVAL:         over1[j] = 1         stat1[j] -= MAXVAL + 1 div = over1</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>The implementation of first, second and third order Sigma-delta modulators can be found in: <a href="https://github.com/jfosorio/plldesigner">plldesigner</a></p>
 </div>
 </div>
@@ -2164,7 +2198,7 @@ div <span style='color:#808030; '>=</span> over1 </pre>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[2]:
+In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2200,7 +2234,7 @@ In&nbsp;[2]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[3]:
+In&nbsp;[5]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2324,7 +2358,7 @@ SUVORK5CYII=
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[4]:
+In&nbsp;[6]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2663,7 +2697,7 @@ EREREREREREREREREREREREREQk4/w+dtC7neEuExwAAAABJRU5ErkJggg==
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[5]:
+In&nbsp;[7]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3120,7 +3154,7 @@ QmCC
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[6]:
+In&nbsp;[8]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3562,6 +3596,7 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 <li><p>The text was corrected, although not perfect is definitely more readable.</p></li>
 <li><p>The pnoise class was renamed to be Pnoise, according with Python conventions, so the notebook was updated accordingly.</p></li>
 <li><p>The notebook imports pylab as &quot;from pylab import *&quot;, what I consider is the best practice in a Notebook were clarity is more desired than follow software writing best practices.</p></li>
+<li><p>Some equations that were not displayed correctly were corrected.</p></li>
 </ul>
 </div>
 </div>
