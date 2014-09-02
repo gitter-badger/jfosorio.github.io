@@ -25,7 +25,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-The circuit in figure 1 implements the fractional division of input &lt;span class="math"&gt;\(f_{in}\)&lt;/span&gt; by the fractional period defined by &lt;span class="math"&gt;\(N+f(z)\)&lt;/span&gt; using a SDM. As it is difficult to design a reliable circuit that divides a input frequency by a fractional number a integer divider with a division factor that is in average the desired value is used. As this operation introduces unwanted phase changes in the output signal we are interested in finding the power spectral density of these disturbances. &lt;br&gt; &lt;img src="./Figs/fractional_divider.png" alt="Plotly tinkerbell" height=400px/&gt;
+The circuit in figure 1 implements the fractional division of input &lt;span class="math"&gt;\(f_{in}\)&lt;/span&gt; by the fractional period defined by &lt;span class="math"&gt;\(N+f(z)\)&lt;/span&gt; using a SDM. As it is difficult to design a reliable circuit that divides a input frequency by a fractional number a integer divider with a division factor that is in average the desired value is used. As this operation introduces unwanted phase changes in the output signal we are interested in finding the power spectral density of these disturbances. &lt;br&gt; &lt;img src="./images/fractional_divider.png" alt="Plotly tinkerbell" height=400px/&gt;
 &lt;center&gt; 
 Figure 1. Topology of a fractional divider made with a SDM
 &lt;/center&gt;
