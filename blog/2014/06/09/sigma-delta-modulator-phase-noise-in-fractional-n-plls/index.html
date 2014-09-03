@@ -1899,13 +1899,14 @@ In&nbsp;[1]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <pre class="python:"><code>K = round(Nfloat*2**N)
-_maxval = 2**N-1
+_maxvalur = 2**N-1
 for j in arange(1, L):
+    over[j] = 0
     stat[j] = stat[j-1] + K
-    if stat[j] &gt; _maxval:
+    if stat[j] &gt; _maxvalue:
         over[j] = 1
-        stat[j] -= _maxval + 1
-div = over1</code></pre>
+        stat[j] -= _maxvalue + 1
+sd = over</code></pre>
 </div>
 </div>
 </div>
@@ -3369,7 +3370,7 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 
   <section>
   <h1>Tags</h1>
-    <a href="http://jfosorio.github.io/tag/phase-noise.html">Phase Noise</a>,    <a href="http://jfosorio.github.io/tag/sigma-delta-modulator.html">Sigma-Delta modulator</a>,    <a href="http://jfosorio.github.io/tag/welcome.html">Welcome</a>,    <a href="http://jfosorio.github.io/tag/notebook.html">Notebook</a>  </section>
+    <a href="http://jfosorio.github.io/tag/notebook.html">Notebook</a>,    <a href="http://jfosorio.github.io/tag/welcome.html">Welcome</a>,    <a href="http://jfosorio.github.io/tag/sigma-delta-modulator.html">Sigma-Delta modulator</a>,    <a href="http://jfosorio.github.io/tag/phase-noise.html">Phase Noise</a>  </section>
 
 
 
