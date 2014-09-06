@@ -1784,7 +1784,7 @@ jQuery(document).ready(function($) {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-The circuit in figure 1 implements the fractional division of input <span class="math">\(f_{in}\)</span> by the fractional period defined by <span class="math">\(N+f(z)\)</span> using a SDM. As it is difficult to design a reliable circuit that divides a input frequency by a fractional number a integer divider with a division factor that is in average the desired value is used. As this operation introduces unwanted phase changes in the output signal we are interested in finding the power spectral density of these disturbances. <br> <img src="/images/fractional_divider.png" alt="Fractional divider" height=400px/>
+The circuit in figure 1 implements the fractional division of input <span class="math">\(f_{in}\)</span> by the fractional period defined by <span class="math">\(N+f(z)\)</span> using a SDM. As it is difficult to design a reliable circuit that divides a input frequency by a fractional number a integer divider with a division factor that is in average the desired value is used. As this operation introduces unwanted phase changes in the output signal we are interested in finding the power spectral density of these disturbances. <br> <img src="images/fractional_divider.png" alt="Fractional divider" height=400px/>
 <center> 
 Figure 1. Topology of a fractional divider made with a SDM
 </center>
@@ -1901,12 +1901,12 @@ In&nbsp;[1]:
 <pre class="python:"><code>K = round(Nfloat*2**N)
 _maxvalur = 2**N-1
 for j in arange(1, L):
-    over[j] = 0
-    stat[j] = stat[j-1] + K
-    if stat[j] &gt; _maxvalue:
-        over[j] = 1
-        stat[j] -= _maxvalue + 1
-sd = over</code></pre>
+    overflow[j] = 0
+    state = stat[j-1] + K
+    if state[j] &gt; _maxvalue:
+        overflow[j] = 1
+        state -= _maxvalue + 1
+sd = overflow</code></pre>
 </div>
 </div>
 </div>
@@ -3370,7 +3370,7 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 
   <section>
   <h1>Tags</h1>
-    <a href="http://jfosorio.github.io/tag/phase-noise.html">Phase Noise</a>,    <a href="http://jfosorio.github.io/tag/welcome.html">Welcome</a>,    <a href="http://jfosorio.github.io/tag/sigma-delta-modulator.html">Sigma-Delta modulator</a>,    <a href="http://jfosorio.github.io/tag/notebook.html">Notebook</a>  </section>
+    <a href="http://jfosorio.github.io/tag/phase-noise.html">Phase Noise</a>,    <a href="http://jfosorio.github.io/tag/sigma-delta-modulator.html">Sigma-Delta modulator</a>,    <a href="http://jfosorio.github.io/tag/welcome.html">Welcome</a>,    <a href="http://jfosorio.github.io/tag/notebook.html">Notebook</a>  </section>
 
 
 
