@@ -5,8 +5,8 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The first time that I needed to design a fractional-N PLL if took me quite some time to gain confidence over the model I was using to calculate the phase noise produced by the &lt;span class="math"&gt;\(\Sigma\Delta\)&lt;/span&gt;-modulators(SDM). The reason it took me so long is that there are a couple of mathematical pitfalls that are difficult to avoid at first. Many times I tough that a reference code would have made my life much simpler.&lt;/p&gt;
-&lt;p&gt;This is one of those topics where a notebook including both theory and code seems particular appealing. This notebook is about that. This entry expose first the SDM theory in the first section, the second section shows how a mash SDM works and explain the model in Python and the last section show the results and the comparison with the theoretical model. The SDM model is part of a more general package to design PLL's that is available in github.&lt;/p&gt;
+&lt;p&gt;The first time that I needed to design a fractional-N PLL if took me  quite some time to gain confidence over the model I was using to calculate the phase noise produced by the $\Sigma\Delta$-modulators(SDM). The reason it took me so long is that there are a couple of mathematical pitfalls that are difficult to avoid at first. Many times I tough that a reference code would have made my life much simpler.&lt;/p&gt;
+&lt;p&gt;This is one of those topics where a notebook including both theory and code seems particular appealing. This notebook is about that. This entry expose first the SDM theory in the first section, the second section shows how a mash SDM works and explain the model in Python and the last section show the results and the comparison with the theoretical model.  The SDM model is part of a more general package to design PLL&amp;#39;s that is available in github.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -15,7 +15,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Linear-phase-noise-analysis-for-the-excess-of-phase-noise-at-the-output-of-a-fractional-divider-using-a-\(\Sigma-\Delta\)-modulator"&gt;Linear phase noise analysis for the excess of phase noise at the output of a fractional divider using a &lt;span class="math"&gt;\(\Sigma-\Delta\)&lt;/span&gt; modulator&lt;a class="anchor-link" href="#Linear-phase-noise-analysis-for-the-excess-of-phase-noise-at-the-output-of-a-fractional-divider-using-a-\(\Sigma-\Delta\)-modulator"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="Linear-phase-noise-analysis-for-the-excess-of-phase-noise-at-the-output-of-a-fractional-divider-using-a-$\Sigma-\Delta$-modulator"&gt;Linear phase noise analysis for the excess of phase noise at the output of a fractional divider using a $\Sigma-\Delta$ modulator&lt;a class="anchor-link" href="#Linear-phase-noise-analysis-for-the-excess-of-phase-noise-at-the-output-of-a-fractional-divider-using-a-$\Sigma-\Delta$-modulator"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -25,11 +25,12 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-The circuit in figure 1 implements the fractional division of input &lt;span class="math"&gt;\(f_{in}\)&lt;/span&gt; by the fractional period defined by &lt;span class="math"&gt;\(N+f(z)\)&lt;/span&gt; using a SDM. As it is difficult to design a reliable circuit that divides a input frequency by a fractional number a integer divider with a division factor that is in average the desired value is used. As this operation introduces unwanted phase changes in the output signal we are interested in finding the power spectral density of these disturbances. &lt;br&gt; &lt;img src="images/fractional_divider.png" alt="Fractional divider" height=400px/&gt;
-&lt;center&gt; 
-Figure 1. Topology of a fractional divider made with a SDM
-&lt;/center&gt;
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;The circuit in figure 1 implements the fractional division of input $f_{in}$  by the fractional
+period defined by $N+f(z)$ using a SDM. As it is difficult to design a reliable circuit that divides a input frequency by a fractional number a integer divider with a division factor that is in average the desired value is used. As this operation introduces unwanted phase changes in the output signal we are interested in finding the power spectral density of these disturbances.
+&lt;br&gt;
+&lt;img src="images/fractional_divider.png" alt="Fractional divider" height=400px/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;center&gt; Figure 1. Topology of a fractional divider made with a SDM &lt;/center&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -59,56 +60,57 @@ In&amp;nbsp;[1]:
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The instantaneous frequency division is given by:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+&lt;p&gt;$$
     N_{div}(z) = N+f(z)+H_{s}(z) \Delta_{q}(z),
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Where &lt;span class="math"&gt;\(N\)&lt;/span&gt; is that integer part of the division ratio, &lt;span class="math"&gt;\(f(z)\)&lt;/span&gt; is the fractional part, and &lt;span class="math"&gt;\(H_s(z) \Delta_{q}(z)\)&lt;/span&gt; is the instantaneous error made by a SDM of order m. The instantaneous noise of the SDM has to components &lt;span class="math"&gt;\(\Delta_{q}(z)\)&lt;/span&gt; is the quantization noise and the term &lt;span class="math"&gt;\(H_s(z)\)&lt;/span&gt; is the noise shaping transfer function.&lt;/p&gt;
-&lt;p&gt;The output frequency of the SD modulator is given by:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+$$&lt;/p&gt;
+&lt;p&gt;Where $N$ is that integer part of the division ratio, $f(z)$ is the fractional part, and 
+$H_s(z) \Delta_{q}(z)$ is the instantaneous error made by a SDM of order m. The instantaneous noise of the SDM has to components $\Delta_{q}(z)$ is the quantization noise and the term $H_s(z)$ is the noise shaping transfer function.  &lt;/p&gt;
+&lt;p&gt;The output frequency of the SD modulator is given by: &lt;/p&gt;
+&lt;p&gt;$$
     f_{div}(z) = \cfrac{f_{in}}{N+f(z)+H_s(z) \Delta_{q}(z)},
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;that can be simplify, using the approximation &lt;span class="math"&gt;\(\cfrac{1}{1+x} \approx  1-x \: \text{for } x &amp;lt;&amp;lt; 1\)&lt;/span&gt;, as:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+$$&lt;/p&gt;
+&lt;p&gt;that can be simplify, using the approximation $\cfrac{1}{1+x} \approx  1-x \: \text{for } x &amp;lt;&amp;lt; 1$, as:&lt;/p&gt;
+&lt;p&gt;$$
     f_{div}(z) = \cfrac{f_{in}}{N+f(z)}\left(1 - \cfrac{H_s(z) \Delta_{q}(z)}{N+f(z)}\right),
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;As &lt;span class="math"&gt;\(\cfrac{f_{in}}{N+f(z)}\)&lt;/span&gt; equals the target frequency, which in a PLL is the reference frequency &lt;span class="math"&gt;\(f_{ref}\)&lt;/span&gt;, the frequency error as a function of the target frequency equals:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+$$&lt;/p&gt;
+&lt;p&gt;As $\cfrac{f_{in}}{N+f(z)}$ equals the target frequency, which in a PLL is the reference frequency   $f_{ref}$, the frequency error as a function of the target frequency equals:&lt;/p&gt;
+&lt;p&gt;$$
     \Delta_{f_{div}}(z) = - f_{ref} \cfrac{ H_s(z) \Delta_{q}(z)}{N+f(z)}.
-\]&lt;/span&gt;&lt;/p&gt;
+$$&lt;/p&gt;
 &lt;p&gt;The power spectral density of the quantization noise can be approximated using a similar assumption than the one used to calculate the spectrum of the quantization noise of a ADC. In the case of a SDM the phase error increases linearly during a single period of the reference until it reaches the minimum integer division ratio of the divider. For a divider with a minimum step of one the quantization noise rms value can be approximated by:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+&lt;p&gt;$$
     \Delta_{q,rms} = \frac{1}{12} (rad, rms),
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;this noise is uniformly distributed over Nyquist bandwidth of the sampler than in the case of a PLL is &lt;span class="math"&gt;\(f_{ref}/2\)&lt;/span&gt;. Then the noise power spectral density of the sampling noise is given by:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+$$&lt;/p&gt;
+&lt;p&gt;this noise is uniformly distributed over Nyquist bandwidth of the sampler than in the case of a PLL is $f_{ref}/2$. Then the noise power spectral density of the sampling noise is given by:&lt;/p&gt;
+&lt;p&gt;$$
     \Delta_{q}^2 = \frac{1}{6 f_{ref}} (rad^2/Hz). 
-\]&lt;/span&gt;&lt;/p&gt;
+$$&lt;/p&gt;
 &lt;p&gt;The other aspect that needs to be accounted for, in order to find a close expression for the phase noise, is the shaping of the SDM, for Mash-1-1-1 SDM this is given by[1]:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+&lt;p&gt;$$
     H_s(z)= (1-z^{-1})^m, 
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;where m is the SDM order.&lt;/p&gt;
+$$&lt;/p&gt;
+&lt;p&gt;where m is the SDM order. &lt;/p&gt;
 &lt;p&gt;With this elements in place it is possible to have a better expression for the error made approximating the frequency thus:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+&lt;p&gt;$$
     \Delta_{f_{div}}(z)^2 =  \left|f_{ref} \cfrac{ (1-z^{-1})^m}{N+f(z)}\right|^2 \cfrac{1}{6 f_{ref}}.
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;As it happens we are interesting in the phase, so integrating the last expression in the z-domain we have:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+$$&lt;/p&gt;
+&lt;p&gt;As it happens we are interesting in the phase, so integrating the last expression in the z-domain we have: &lt;/p&gt;
+&lt;p&gt;$$
 \Phi_{div}(z) = \frac{2 \pi T_{ref} \Delta_{f_{div}}(z)}{1-z^{-1}},
-\]&lt;/span&gt;&lt;/p&gt;
+$$&lt;/p&gt;
 &lt;p&gt;that putting everything together ends being:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+&lt;p&gt;$$
 \Phi_{div}(z)^2 = \frac{(2 \pi)^2}{6 f_{ref}} \frac{|1-z^{-1}|^{2m-1}}{(N+f(z))^2}(Rad^2/Hz)
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;by definition &lt;span class="math"&gt;\(\mathcal{L}(z)= \Phi_{div}(z)^2/2\)&lt;/span&gt; the phase noise is given by:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
-    \mathcal{L}(z) = \frac{(2 \pi)^2}{12 f_{ref}} \frac{|1-z^{-1}|^{2m-1}}{(N+f(z))^2}(Rad^2/Hz),
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;that can be replaced by a more useful expression replacing &lt;span class="math"&gt;\(z\)&lt;/span&gt; by &lt;span class="math"&gt;\(e^{sT_{ref}}\)&lt;/span&gt; and calling the frequency &lt;span class="math"&gt;\(f_m\)&lt;/span&gt; to emphasis that this is the frequency offset due to the modulation:&lt;/p&gt;
-&lt;p&gt;&lt;span class="math"&gt;\[
+$$&lt;/p&gt;
+&lt;p&gt;by definition $\mathcal{L}(z)= \Phi_{div}(z)^2/2$ the phase noise is given by: &lt;/p&gt;
+&lt;p&gt;$$
+	\mathcal{L}(z) = \frac{(2 \pi)^2}{12 f_{ref}} \frac{|1-z^{-1}|^{2m-1}}{(N+f(z))^2}(Rad^2/Hz),
+$$&lt;/p&gt;
+&lt;p&gt;that can be replaced by a more useful expression replacing $z$ by $e^{sT_{ref}}$ and calling the frequency $f_m$ to emphasis that this is the frequency offset due to the modulation:&lt;/p&gt;
+&lt;p&gt;$$
   \mathcal{L}(f_m) = \frac{(2 \pi)^2}{12 f_{ref}} \cfrac{[2 sin(\pi f_m/ f_{ref})]^{2(m-1)}}{(N+f(z))^2}.
-\]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;As presented here this is the noise at the output of the divider, normally in previous references [1] and [2] the noise is scaled to the divider output, that is multiplying the last equation by &lt;span class="math"&gt;\((N+f(z))^2\)&lt;/span&gt;.&lt;/p&gt;
+$$&lt;/p&gt;
+&lt;p&gt;As presented here this is the noise at the output of the divider, normally in previous references [1] and [2] the noise is scaled to the divider output, that is multiplying the last equation by $(N+f(z))^2$.&lt;/p&gt;
 &lt;p&gt;[1]B. Miller and R. J. Conley, “A multiple modulator fractional divider,” IEEE Transactions on Instrumentation and Measurement, vol. 40, no. 3, pp. 578–583, 1991.&lt;/p&gt;
 &lt;p&gt;[2]T. A. D. Riley, M. A. Copeland, and T. A. Kwasniewski, “Delta-sigma modulation in fractional-N frequency synthesis,” IEEE Journal of Solid-State Circuits, vol. 28, no. 5, pp. 553–559, May 1993.&lt;/p&gt;
 &lt;/div&gt;
@@ -129,8 +131,8 @@ In&amp;nbsp;[1]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Within the &lt;a href="https://github.com/jfosorio/plldesigner"&gt;plldesigner&lt;/a&gt; project two modules implement a class for adding pnoise frequency domain signals and and create sequences of SDM's.&lt;/p&gt;
-&lt;p&gt;The sigma delta modulator is implemented by an algorithm that uses a counter that add every time the input word K and overflows when the value reaches MAX value that is equivalent in to the maximum value of a register, that is: &lt;span class="math"&gt;\(2^N-1\)&lt;/span&gt;. The next example shows how a first order modulator is implemented:&lt;/p&gt;
+&lt;p&gt;Within the &lt;a href="https://github.com/jfosorio/plldesigner"&gt;plldesigner&lt;/a&gt; project two modules implement a class for adding pnoise frequency domain signals and and create sequences of SDM&amp;#39;s.&lt;/p&gt;
+&lt;p&gt;The sigma delta modulator is implemented by an algorithm that uses a counter that add every time the input word K and overflows when the value reaches MAX value that is equivalent in to the maximum value of a register, that is: $2^N-1$. The next example shows how a first order modulator is implemented:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -139,15 +141,16 @@ In&amp;nbsp;[1]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;pre class="python:"&gt;&lt;code&gt;K = round(Nfloat*2**N)
-_maxvalur = 2**N-1
-for j in arange(1, L):
-    overflow[j] = 0
-    state = stat[j-1] + K
-    if state[j] &amp;gt; _maxvalue:
-        overflow[j] = 1
-        state -= _maxvalue + 1
-sd = overflow&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class="language-python:"&gt;k = round(Nfloat&lt;span class="variable"&gt;*2&lt;/span&gt;&lt;span class="variable"&gt;**&lt;/span&gt;N)
+&lt;span class="keyword"&gt;for&lt;/span&gt; j in arange(&lt;span class="number"&gt;0&lt;/span&gt;, L):
+    &lt;span class="keyword"&gt;state&lt;/span&gt; = &lt;span class="keyword"&gt;state&lt;/span&gt; + k[j - &lt;span class="number"&gt;1&lt;/span&gt;]
+    &lt;span class="keyword"&gt;if&lt;/span&gt; &lt;span class="keyword"&gt;state&lt;/span&gt; &amp;gt; _maxvalue:
+        over = &lt;span class="number"&gt;1&lt;/span&gt;
+        &lt;span class="keyword"&gt;state&lt;/span&gt; -= _maxvalue + &lt;span class="number"&gt;1&lt;/span&gt;
+    &lt;span class="keyword"&gt;else&lt;/span&gt;:
+        over = &lt;span class="number"&gt;0&lt;/span&gt;
+        sd[j] = over
+&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -192,7 +195,8 @@ In&amp;nbsp;[2]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;In order to create a 1-1-1 Mash sequence the gen_mash function was created in the sdmod module. The function has as inputs, the order of the modulator m, number of bits of the accumulator and the input vector &lt;span class="math"&gt;\(k[n]\)&lt;/span&gt;. The following code shows the sequence created by a SDM of third order.&lt;/p&gt;
+&lt;p&gt;In order to create a 1-1-1 Mash sequence the gen_mash function was created in the sdmod module. The function has as inputs, the order of the modulator m, number of bits of the accumulator and the
+input vector $k[n]$. The following code shows the sequence created by a SDM of third order.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -316,7 +320,7 @@ SUVORK5CYII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The phase error &lt;span class="math"&gt;\(\phi_{out}[n]\)&lt;/span&gt; can be calculated accumulating the error in the frequency. Then the power spectrum density is estimated with the &lt;a href="http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.signal.welch.html"&gt;welch periodogram&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The phase error $\phi_{out}[n]$ can be calculated accumulating the error in the frequency. Then the power spectrum density is estimated with the &lt;a href="http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.signal.welch.html"&gt;welch periodogram&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -645,7 +649,7 @@ EREREREREREREREREREREREREQk4/w+dtC7neEuExwAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Non-linear-behavior-of-the-\(\Sigma-\Delta\)-modulator"&gt;Non-linear behavior of the &lt;span class="math"&gt;\(\Sigma-\Delta\)&lt;/span&gt; modulator&lt;a class="anchor-link" href="#Non-linear-behavior-of-the-\(\Sigma-\Delta\)-modulator"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="Non-linear-behavior-of-the-$\Sigma-\Delta$-modulator"&gt;Non-linear behavior of the $\Sigma-\Delta$ modulator&lt;a class="anchor-link" href="#Non-linear-behavior-of-the-$\Sigma-\Delta$-modulator"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -655,7 +659,7 @@ EREREREREREREREREREREREREQk4/w+dtC7neEuExwAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The previous theory fails to predict spurs that can occur when the input is a rational number. This is demonstrated using the same SDM but with a input equivalent to 1/8. It is important to understand these spurs as they can fall in band after they are folded back by the non-linearity of the CP and the PFD.&lt;/p&gt;
+&lt;p&gt;The previous theory fails to predict spurs that can occur when the input is a rational number.  This is demonstrated using the same SDM but with a input equivalent to 1/8. It is important to understand these spurs as they can fall in band after they are folded back by the non-linearity of the CP and the PFD.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1110,7 +1114,7 @@ QmCC
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Several works can be traced in the literature predicting under which circumstances these spurs occur and what is their magnitude. The spurs appearance and amplitude depend both of the input word and the initial state of the registers of the modulator. The same work demonstrate that initializing the first register of the first register of the SDM creates enough dithering to reduce the spurs.&lt;/p&gt;
+&lt;p&gt;Several works can be traced in the literature predicting under which circumstances these spurs occur and what is their magnitude.  The spurs appearance and amplitude depend both of the input word and the initial state of the registers of the modulator. The same work demonstrate that initializing the first register of the first register of the SDM creates enough dithering to reduce the spurs. &lt;/p&gt;
 &lt;p&gt;The gen_mash accepts a fourth argument to initialize the mash registers. This argument is a tuple with a number of elements that equals the order of the SDM.&lt;/p&gt;
 &lt;p&gt;[Kozak] Kozak, M., Kale, I., 2004. Rigorous analysis of delta-sigma modulators for fractional-N PLL frequency synthesis. IEEE Transactions on Circuits and Systems I: Regular Papers 51, 1148–1162. (doi:10.1109/TCSI.2004.829308)&lt;/p&gt;
 &lt;/div&gt;
@@ -1536,8 +1540,8 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;With this entry I revisited the theory of SD modulators using a module written in Python. The fundamental aspects of Mash SDM modulators are explained and documented. To analyse the output I used the nice Scipy library. In this way, and with the help of the Ipython notebook, the linear theory of mash SDM and its limitations are well documented and results are easily replicated.&lt;/p&gt;
-&lt;p&gt;This shows a bit what would be the intention with the plldesigner toolkit. This a project that I have been developing and aims to add specific functionality to the numpy+scipy+ipython ecosystem to simulate and model PLL's.&lt;/p&gt;
+&lt;p&gt;With this entry I revisited the theory of SD modulators using a module written in Python. The fundamental aspects of Mash SDM modulators are explained and documented. To analyse the output I used the nice Scipy library.  In this way, and with the help of the Ipython notebook, the linear theory of mash SDM and its limitations are well documented and results are easily replicated.&lt;/p&gt;
+&lt;p&gt;This shows a bit what would be the intention with the plldesigner toolkit. This a project that I have been developing and aims to add specific functionality to the numpy+scipy+ipython ecosystem to simulate and model PLL&amp;#39;s.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1558,10 +1562,14 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;After publication some changes have been made:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;The text was corrected, although not perfect is definitely more readable.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The pnoise class was renamed to be Pnoise, according with Python conventions, so the notebook was updated accordingly.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The notebook imports pylab as &amp;quot;from pylab import *&amp;quot;, what I consider is the best practice in a Notebook were clarity is more desired than follow software writing best practices.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Some equations that were not displayed correctly were corrected.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The text was corrected, although not perfect is definitely more readable.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The pnoise class was renamed to be Pnoise, according with Python conventions, so the notebook was updated accordingly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The notebook imports pylab as &amp;quot;from pylab import *&amp;quot;, what I consider is the best practice in a Notebook were clarity is more desired than follow software writing best practices.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Some equations that were not displayed correctly were corrected. &lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
