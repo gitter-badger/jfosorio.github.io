@@ -61,7 +61,9 @@ In&amp;nbsp;[1]:
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The instantaneous frequency division is given by:&lt;/p&gt;
 &lt;p&gt;$$
+\begin{equation}
     N_{div}(z) = N+f(z)+H_{s}(z) \Delta_{q}(z),
+\end{equation}
 $$&lt;/p&gt;
 &lt;p&gt;Where $N$ is that integer part of the division ratio, $f(z)$ is the fractional part, and 
 $H_s(z) \Delta_{q}(z)$ is the instantaneous error made by a SDM of order m. The instantaneous noise of the SDM has to components $\Delta_{q}(z)$ is the quantization noise and the term $H_s(z)$ is the noise shaping transfer function.  &lt;/p&gt;
