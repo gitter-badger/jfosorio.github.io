@@ -37,7 +37,7 @@ period defined by $N+f(z)$ using a SDM. As it is difficult to design a reliable 
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[10]:
+In&amp;nbsp;[1]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
@@ -111,8 +111,6 @@ $$&lt;/p&gt;
   \mathcal{L}(f_m) = \frac{(2 \pi)^2}{12 f_{ref}} \cfrac{[2 sin(\pi f_m/ f_{ref})]^{2(m-1)}}{(N+f(z))^2}.
 $$&lt;/p&gt;
 &lt;p&gt;As presented here this is the noise at the output of the divider, normally in previous references [1] and [2] the noise is scaled to the divider output, that is multiplying the last equation by $(N+f(z))^2$.&lt;/p&gt;
-&lt;p&gt;[1]B. Miller and R. J. Conley, “A multiple modulator fractional divider,” IEEE Transactions on Instrumentation and Measurement, vol. 40, no. 3, pp. 578–583, 1991.&lt;/p&gt;
-&lt;p&gt;[2]T. A. D. Riley, M. A. Copeland, and T. A. Kwasniewski, “Delta-sigma modulation in fractional-N frequency synthesis,” IEEE Journal of Solid-State Circuits, vol. 28, no. 5, pp. 553–559, May 1993.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -166,7 +164,7 @@ $$&lt;/p&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[11]:
+In&amp;nbsp;[2]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
@@ -203,7 +201,7 @@ input vector $k[n]$. The following code shows the sequence created by a SDM of t
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[12]:
+In&amp;nbsp;[3]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
@@ -327,7 +325,7 @@ SUVORK5CYII=
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[13]:
+In&amp;nbsp;[4]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
@@ -666,7 +664,7 @@ EREREREREREREREREREREREREQk4/w+dtC7neEuExwAAAABJRU5ErkJggg==
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[14]:
+In&amp;nbsp;[5]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
@@ -1114,16 +1112,14 @@ QmCC
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Several works can be traced in the literature predicting under which circumstances these spurs occur and what is their magnitude.  The spurs appearance and amplitude depend both of the input word and the initial state of the registers of the modulator. The same work demonstrate that initializing the first register of the first register of the SDM creates enough dithering to reduce the spurs. &lt;/p&gt;
-&lt;p&gt;The gen_mash accepts a fourth argument to initialize the mash registers. This argument is a tuple with a number of elements that equals the order of the SDM.&lt;/p&gt;
-&lt;p&gt;[Kozak] Kozak, M., Kale, I., 2004. Rigorous analysis of delta-sigma modulators for fractional-N PLL frequency synthesis. IEEE Transactions on Circuits and Systems I: Regular Papers 51, 1148–1162. (doi:10.1109/TCSI.2004.829308)&lt;/p&gt;
+&lt;p&gt;The spurs appearance and amplitude depend both of the input word and the initial state of the registers of the modulator [3]. It can be that initializing the first register of the first register of the SDM creates enough dithering to reduce the spurs The gen_mash accepts a fourth argument to initialize the mash registers. This argument is a tuple with a number of elements that equals the order of the SDM.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;
-In&amp;nbsp;[15]:
+In&amp;nbsp;[6]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
     &lt;div class="input_area"&gt;
@@ -1542,6 +1538,32 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;With this entry I revisited the theory of SD modulators using a module written in Python. The fundamental aspects of Mash SDM modulators are explained and documented. To analyse the output I used the nice Scipy library.  In this way, and with the help of the Ipython notebook, the linear theory of mash SDM and its limitations are well documented and results are easily replicated.&lt;/p&gt;
 &lt;p&gt;This shows a bit what would be the intention with the plldesigner toolkit. This a project that I have been developing and aims to add specific functionality to the numpy+scipy+ipython ecosystem to simulate and model PLL&amp;#39;s.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="References"&gt;References&lt;a class="anchor-link" href="#References"&gt;&amp;#182;&lt;/a&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;B. Miller and R. J. Conley, “A multiple modulator fractional divider,” IEEE Transactions on Instrumentation and Measurement, vol. 40, no. 3, pp. 578–583, 1991.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;T. A. D. Riley, M. A. Copeland, and T. A. Kwasniewski, “Delta-sigma modulation in fractional-N frequency synthesis,” IEEE Journal of Solid-State Circuits, vol. 28, no. 5, pp. 553–559, May 1993.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Kozak, M., Kale, I., 2004. Rigorous analysis of delta-sigma modulators for fractional-N PLL frequency synthesis. IEEE Transactions on Circuits and Systems I: Regular Papers 51, 1148–1162. (doi:10.1109/TCSI.2004.829308)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

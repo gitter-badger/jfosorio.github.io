@@ -1797,7 +1797,7 @@ period defined by $N+f(z)$ using a SDM. As it is difficult to design a reliable 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[10]:
+In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1871,8 +1871,6 @@ $$</p>
   \mathcal{L}(f_m) = \frac{(2 \pi)^2}{12 f_{ref}} \cfrac{[2 sin(\pi f_m/ f_{ref})]^{2(m-1)}}{(N+f(z))^2}.
 $$</p>
 <p>As presented here this is the noise at the output of the divider, normally in previous references [1] and [2] the noise is scaled to the divider output, that is multiplying the last equation by $(N+f(z))^2$.</p>
-<p>[1]B. Miller and R. J. Conley, “A multiple modulator fractional divider,” IEEE Transactions on Instrumentation and Measurement, vol. 40, no. 3, pp. 578–583, 1991.</p>
-<p>[2]T. A. D. Riley, M. A. Copeland, and T. A. Kwasniewski, “Delta-sigma modulation in fractional-N frequency synthesis,” IEEE Journal of Solid-State Circuits, vol. 28, no. 5, pp. 553–559, May 1993.</p>
 </div>
 </div>
 </div>
@@ -1926,7 +1924,7 @@ $$</p>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[11]:
+In&nbsp;[2]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1963,7 +1961,7 @@ input vector $k[n]$. The following code shows the sequence created by a SDM of t
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[12]:
+In&nbsp;[3]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2087,7 +2085,7 @@ SUVORK5CYII=
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[13]:
+In&nbsp;[4]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2426,7 +2424,7 @@ EREREREREREREREREREREREREQk4/w+dtC7neEuExwAAAABJRU5ErkJggg==
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[14]:
+In&nbsp;[5]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -2874,16 +2872,14 @@ QmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Several works can be traced in the literature predicting under which circumstances these spurs occur and what is their magnitude.  The spurs appearance and amplitude depend both of the input word and the initial state of the registers of the modulator. The same work demonstrate that initializing the first register of the first register of the SDM creates enough dithering to reduce the spurs. </p>
-<p>The gen_mash accepts a fourth argument to initialize the mash registers. This argument is a tuple with a number of elements that equals the order of the SDM.</p>
-<p>[Kozak] Kozak, M., Kale, I., 2004. Rigorous analysis of delta-sigma modulators for fractional-N PLL frequency synthesis. IEEE Transactions on Circuits and Systems I: Regular Papers 51, 1148–1162. (doi:10.1109/TCSI.2004.829308)</p>
+<p>The spurs appearance and amplitude depend both of the input word and the initial state of the registers of the modulator [3]. It can be that initializing the first register of the first register of the SDM creates enough dithering to reduce the spurs The gen_mash accepts a fourth argument to initialize the mash registers. This argument is a tuple with a number of elements that equals the order of the SDM.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[15]:
+In&nbsp;[6]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -3310,6 +3306,32 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="References">References<a class="anchor-link" href="#References">&#182;</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li><p>B. Miller and R. J. Conley, “A multiple modulator fractional divider,” IEEE Transactions on Instrumentation and Measurement, vol. 40, no. 3, pp. 578–583, 1991.</p>
+</li>
+<li><p>T. A. D. Riley, M. A. Copeland, and T. A. Kwasniewski, “Delta-sigma modulation in fractional-N frequency synthesis,” IEEE Journal of Solid-State Circuits, vol. 28, no. 5, pp. 553–559, May 1993.</p>
+</li>
+<li><p>Kozak, M., Kale, I., 2004. Rigorous analysis of delta-sigma modulators for fractional-N PLL frequency synthesis. IEEE Transactions on Circuits and Systems I: Regular Papers 51, 1148–1162. (doi:10.1109/TCSI.2004.829308)</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Changes">Changes<a class="anchor-link" href="#Changes">&#182;</a></h2>
 </div>
 </div>
@@ -3379,7 +3401,7 @@ JCln/wPV5UC1z4+t3wAAAABJRU5ErkJggg==
 
   <section>
   <h1>Tags</h1>
-    <a href="http://jfosorio.github.io/tag/sigma-delta-modulator.html">Sigma-Delta modulator</a>,    <a href="http://jfosorio.github.io/tag/welcome.html">Welcome</a>,    <a href="http://jfosorio.github.io/tag/phase-noise.html">Phase Noise</a>,    <a href="http://jfosorio.github.io/tag/notebook.html">Notebook</a>  </section>
+    <a href="http://jfosorio.github.io/tag/sigma-delta-modulator.html">Sigma-Delta modulator</a>,    <a href="http://jfosorio.github.io/tag/phase-noise.html">Phase Noise</a>,    <a href="http://jfosorio.github.io/tag/notebook.html">Notebook</a>,    <a href="http://jfosorio.github.io/tag/welcome.html">Welcome</a>  </section>
 
 
 
