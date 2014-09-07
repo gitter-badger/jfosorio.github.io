@@ -66,9 +66,9 @@ In&amp;nbsp;[10]:
 &lt;p&gt;Where $N$ is that integer part of the division ratio, $f(z)$ is the fractional part, and 
 $H_s(z) \Delta_{q}(z)$ is the instantaneous error made by a SDM of order m. The instantaneous noise of the SDM has to components $\Delta_{q}(z)$ is the quantization noise and the term $H_s(z)$ is the noise shaping transfer function.  &lt;/p&gt;
 &lt;p&gt;The output frequency of the SD modulator is given by: &lt;/p&gt;
-&lt;p&gt;$$
+&lt;p&gt;$$\begin{equation}
     f_{div}(z) = \cfrac{f_{in}}{N+f(z)+H_s(z) \Delta_{q}(z)},
-$$&lt;/p&gt;
+\end{equation}$$&lt;/p&gt;
 &lt;p&gt;that can be simplify, using the approximation $\cfrac{1}{1+x} \approx  1-x \: \text{for } x &amp;lt;&amp;lt; 1$, as:&lt;/p&gt;
 &lt;p&gt;$$
     f_{div}(z) = \cfrac{f_{in}}{N+f(z)}\left(1 - \cfrac{H_s(z) \Delta_{q}(z)}{N+f(z)}\right),
