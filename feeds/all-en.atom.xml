@@ -26,7 +26,7 @@
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;The circuit in figure 1 implements the fractional division of input $f_{in}$  by the fractional
-period defined by $N+f(z)$ using a SDM. As it is difficult to design a reliable circuit that divides a input frequency by a fractional number a integer divider with a division factor that is in average the desired value is used. As this operation introduces unwanted phase changes in the output signal we are interested in finding the power spectral density of these disturbances.
+period defined by $N+f(z)$ using a SDM. As it is difficult to design a reliable circuit that divides a input frequency by a fractional number a integer divider with a division factor that is in average the desired value is used. This operation introduces unwanted phase changes in the output signal and we are interested the power spectral density of these disturbances.
 &lt;br&gt;
 &lt;img src="/images/fractional_divider.png" alt="Fractional divider" height=400px/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;center&gt; Figure 1. Topology of a fractional divider made with a SDM &lt;/center&gt;
@@ -67,17 +67,17 @@ In&amp;nbsp;[1]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The instantaneous frequency division is given by:&lt;/p&gt;
+&lt;p&gt;The instantaneous frequency division of the divider in the figure is given by:&lt;/p&gt;
 &lt;p&gt;$$\begin{equation}
     N_{div}(z) = N+f(z)+H_{s}(z) \Delta_{q}(z),
 \end{equation}$$&lt;/p&gt;
 &lt;p&gt;Where $N$ is that integer part of the division ratio, $f(z)$ is the fractional part, and 
-$H_s(z) \Delta_{q}(z)$ is the instantaneous error made by a SDM of order m. The instantaneous noise of the SDM has to components $\Delta_{q}(z)$ is the quantization noise and the term $H_s(z)$ is the noise shaping transfer function.  &lt;/p&gt;
+$H_s(z) \Delta_{q}(z)$ is the instantaneous error made by a SDM of order m. The instantaneous noise of the SDM has two components $\Delta_{q}(z)$ is the quantization noise and $H_s(z)$ is the noise shaping transfer function of the SD modulator.  &lt;/p&gt;
 &lt;p&gt;The output frequency of the SD modulator is given by: &lt;/p&gt;
 &lt;p&gt;$$\begin{equation}
     f_{div}(z) = \cfrac{f_{in}}{N+f(z)+H_s(z) \Delta_{q}(z)},
 \end{equation}$$&lt;/p&gt;
-&lt;p&gt;that can be simplify, using the approximation $\cfrac{1}{1+x} \approx  1-x \: \text{for } x &amp;lt;&amp;lt; 1$, as:&lt;/p&gt;
+&lt;p&gt;that can be simplified, using the approximation $\cfrac{1}{1+x} \approx  1-x \: \text{for } x &amp;lt;&amp;lt; 1$, as:&lt;/p&gt;
 &lt;p&gt;$$\begin{equation}
     f_{div}(z) = \cfrac{f_{in}}{N+f(z)}\left(1 - \cfrac{H_s(z) \Delta_{q}(z)}{N+f(z)}\right),
 \end{equation}$$&lt;/p&gt;
@@ -85,11 +85,11 @@ $H_s(z) \Delta_{q}(z)$ is the instantaneous error made by a SDM of order m. The 
 &lt;p&gt;$$\begin{equation}
     \Delta_{f_{div}}(z) = - f_{ref} \cfrac{ H_s(z) \Delta_{q}(z)}{N+f(z)}.
 \end{equation}$$&lt;/p&gt;
-&lt;p&gt;The power spectral density of the quantization noise can be approximated using a similar assumption than the one used to calculate the spectrum of the quantization noise of a ADC. In the case of a SDM the phase error increases linearly during a single period of the reference until it reaches the minimum integer division ratio of the divider. For a divider with a minimum step of one the quantization noise rms value can be approximated by:&lt;/p&gt;
+&lt;p&gt;The power spectral density of the quantization noise can be approximated using a similar assumption than the one used to calculate the spectrum of the quantization noise of a ADC. In a SDM the phase error of the output increases linearly during a single period of the reference until the output reaches the minimum integer division ratio of the divider. For a divider with a minimum step of one the quantization noise rms value can be approximated by:&lt;/p&gt;
 &lt;p&gt;$$\begin{equation}
     \Delta_{q,rms} = \frac{1}{12} (rad, rms),
 \end{equation}$$&lt;/p&gt;
-&lt;p&gt;this noise is uniformly distributed over Nyquist bandwidth of the sampler than in the case of a PLL is $f_{ref}/2$. Then the noise power spectral density of the sampling noise is given by:&lt;/p&gt;
+&lt;p&gt;this noise is uniformly distributed over the Nyquist bandwidth of the sampler, than in the case of a PLL is $f_{ref}/2$, and it has a power spectral density given by:&lt;/p&gt;
 &lt;p&gt;$$\begin{equation}
     \Delta_{q}^2 = \frac{1}{6 f_{ref}} (rad^2/Hz). 
 \end{equation}$$&lt;/p&gt;
@@ -98,11 +98,11 @@ $H_s(z) \Delta_{q}(z)$ is the instantaneous error made by a SDM of order m. The 
     H_s(z)= (1-z^{-1})^m, 
 \end{equation}$$&lt;/p&gt;
 &lt;p&gt;where m is the SDM order. &lt;/p&gt;
-&lt;p&gt;With this elements in place it is possible to have a better expression for the error made approximating the frequency thus:&lt;/p&gt;
+&lt;p&gt;With this elements in place it is possible to have a better expression for the error made approximating the frequency, thus:&lt;/p&gt;
 &lt;p&gt;$$\begin{equation}
     \Delta_{f_{div}}(z)^2 =  \left|f_{ref} \cfrac{ (1-z^{-1})^m}{N+f(z)}\right|^2 \cfrac{1}{6 f_{ref}}.
 \end{equation}$$&lt;/p&gt;
-&lt;p&gt;As it happens we are interesting in the phase, so integrating the last expression in the z-domain we have: &lt;/p&gt;
+&lt;p&gt;As it happens we are interesting in the phase, and this is calculated by integrating the last expression in the z-domain. Then we have: &lt;/p&gt;
 &lt;p&gt;$$\begin{equation}
 \Phi_{div}(z) = \frac{2 \pi T_{ref} \Delta_{f_{div}}(z)}{1-z^{-1}},
 \end{equation}$$&lt;/p&gt;
@@ -110,15 +110,15 @@ $H_s(z) \Delta_{q}(z)$ is the instantaneous error made by a SDM of order m. The 
 &lt;p&gt;$$\begin{equation}
 \Phi_{div}(z)^2 = \frac{(2 \pi)^2}{6 f_{ref}} \frac{|1-z^{-1}|^{2m-1}}{(N+f(z))^2}(Rad^2/Hz)
 \end{equation}$$&lt;/p&gt;
-&lt;p&gt;by definition $\mathcal{L}(z)= \Phi_{div}(z)^2/2$ the phase noise is given by: &lt;/p&gt;
+&lt;p&gt;by definition $\mathcal{L}(z)= \Phi_{div}(z)^2/2$, then: &lt;/p&gt;
 &lt;p&gt;$$\begin{equation}
 	\mathcal{L}(z) = \frac{(2 \pi)^2}{12 f_{ref}} \frac{|1-z^{-1}|^{2m-1}}{(N+f(z))^2}(Rad^2/Hz),
 \end{equation}$$&lt;/p&gt;
-&lt;p&gt;that can be replaced by a more useful expression replacing $z$ by $e^{sT_{ref}}$ and calling the frequency $f_m$ to emphasis that this is the frequency offset due to the modulation:&lt;/p&gt;
+&lt;p&gt;that can be replaced by a more useful expression where $z$ is replaced by $e^{sT_{ref}}$. Calling the frequency offset $f_m$, to emphasis that this is the frequency offset due to modulation, the result is:&lt;/p&gt;
 &lt;p&gt;$$\begin{equation}
   \mathcal{L}(f_m) = \frac{(2 \pi)^2}{12 f_{ref}} \cfrac{[2 sin(\pi f_m/ f_{ref})]^{2(m-1)}}{(N+f(z))^2}.
 \end{equation}$$&lt;/p&gt;
-&lt;p&gt;As presented here this is the noise at the output of the divider, normally in previous references [1] and [2] the noise is scaled to the divider output, that is multiplying the last equation by $(N+f(z))^2$.&lt;/p&gt;
+&lt;p&gt;As presented here this is the noise at the output of the divider, normally in previous references, [1] and [2], the noise is calculated at the input of the divider, but I consider this clearer. If the equivalent noise at the input of the divider needs to be calculated that can be done by simply multipling the last equation by $(N+f(z))^2$.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -137,8 +137,8 @@ $H_s(z) \Delta_{q}(z)$ is the instantaneous error made by a SDM of order m. The 
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Within the &lt;a href="https://github.com/jfosorio/plldesigner"&gt;plldesigner&lt;/a&gt; project two modules implement a class for adding pnoise frequency domain signals and and create sequences of SDM&amp;#39;s.&lt;/p&gt;
-&lt;p&gt;The sigma delta modulator is implemented by an algorithm that uses a counter that add every time the input word K and overflows when the value reaches MAX value that is equivalent in to the maximum value of a register, that is: $2^N-1$. The next example shows how a first order modulator is implemented:&lt;/p&gt;
+&lt;p&gt;Within the &lt;a href="https://github.com/jfosorio/plldesigner"&gt;plldesigner&lt;/a&gt; project two modules implement a class for adding pnoise frequency domain signals and creating SDM sequences.&lt;/p&gt;
+&lt;p&gt;The sigma delta modulator is implemented by an algorithm that uses a counter that add every time the input word K and overflows when the value reaches MAX. MAX is the maximum value of the SDM register, that is: $2^N-1$, for a register of N bits. The next code shows how a first order modulator is implemented:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -191,7 +191,7 @@ In&amp;nbsp;[2]:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Creating-a-SDM-sequence-with-gen_mash"&gt;Creating a SDM sequence with gen_mash&lt;a class="anchor-link" href="#Creating-a-SDM-sequence-with-gen_mash"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id="Creating-a-SDM-sequence-with-the-sdmod-module"&gt;Creating a SDM sequence with the sdmod module&lt;a class="anchor-link" href="#Creating-a-SDM-sequence-with-the-sdmod-module"&gt;&amp;#182;&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -351,7 +351,7 @@ uwBJkiRJkiRJkiRJkiRJkiRJUiP8P7ezDDv/Fi/HAAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The phase error $\phi_{out}[n]$ can be calculated accumulating the error in the frequency. Then the power spectrum density is estimated with the &lt;a href="http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.signal.welch.html"&gt;welch periodogram&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The phase error $\phi_{out}[n]$ can be calculated integrating the error in the frequency. Then the power spectrum density is estimated with the &lt;a href="http://docs.scipy.org/doc/scipy-dev/reference/generated/scipy.signal.welch.html"&gt;welch periodogram&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1759,7 +1759,7 @@ SZIkSZIkSZIkSZIkSZIkSZI0L/0BjjO6mLX8d1kAAAAASUVORK5CYII=
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;With this entry I revisited the theory of SD modulators using a module written in Python. The fundamental aspects of Mash SDM modulators are explained and documented. To analyse the output I used the nice Scipy library.  In this way, and with the help of the Ipython notebook, the linear theory of mash SDM and its limitations are well documented and results are easily replicated.&lt;/p&gt;
-&lt;p&gt;This shows a bit what would be the intention with the plldesigner toolkit. This a project that I have been developing and aims to add specific functionality to the numpy+scipy+ipython ecosystem to simulate and model PLL&amp;#39;s.&lt;/p&gt;
+&lt;p&gt;This shows what would be the intention with the plldesigner toolkit. This a project that I have been developing and aims to add specific functionality to the numpy+scipy+ipython ecosystem to simulate and model PLL&amp;#39;s.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
